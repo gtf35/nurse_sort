@@ -22,6 +22,8 @@ def createDemo():
     settingsWorkSheet[config.settingsSheetEndYearCellAddr] = config.settingsSheetEndYearCellText
     settingsWorkSheet[config.settingsSheetBeginMonthCellAddr] = config.settingsSheetBeginMonthCellText
     settingsWorkSheet[config.settingsSheetEndMonthCellAddr] = config.settingsSheetEndMonthCellText
+    settingsWorkSheet[config.settingsSheetRandomCellAddr] = config.settingsSheetRandomCellText
+    settingsWorkSheet[config.settingsSheetInputRandomCellAddr] = config.settingsSheetInputRandomCellDefaultText
     #删除默认的那个
     workBook.remove(workBook["Sheet"])
     workBook.save(config.demoExcelPath)

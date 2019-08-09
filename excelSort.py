@@ -7,6 +7,8 @@ __author__ = 'gtf35'
 #excle 处理框架
 from openpyxl import *
 import openpyxl
+#随机
+import random
 #日期处理
 import calendar
 #配置文件
@@ -23,6 +25,7 @@ class SortExcel():
         self.mBeginMonth = self.readSettingsCell(config.settingsSheetInputBeginMonthCellAddr)
         self.mEndYear = self.readSettingsCell(config.settingsSheetInputEndYearCellAddr)
         self.mEndMonth = self.readSettingsCell(config.settingsSheetInputEndMonthCellAddr)
+        self.mSupportRamdom = self.getSupportRamdom()
         self.mNursesNum =  self.readNursesNum()
         self.readNurses()
 
@@ -110,11 +113,20 @@ class SortExcel():
         self.mNursesList = []
         for line in range(2, self.mNursesNum + 2 , 1):
             self.mNursesList.append(self.readNurseByLine(line))
+        if self.mSupportRamdom :
+            random.shuffle(self.mNursesList)
         mNurseLargeList = []
         for day in range(1, 360, self.mNursesNum):
             for nurse in self.mNursesList:
                 mNurseLargeList.append(nurse)
         self.mNurseLargeList = mNurseLargeList
+
+    def getSupportRamdom(self):
+        input = self.readSettingsCell(config.settingsSheetInputRandomCellAddr)
+        if input == config.settingsSheetInputRandomCellDefaultText:
+            return False
+        else:
+            return True
 
     def readNursesNum(self):
         excelLineMax = self.mNursesWorkSheet.max_row
@@ -151,4 +163,4 @@ if __name__ == '__main__':
     print("护士清单：" + str(se.mNursesList))
     sortList = se.sort()
     print("排序结果：" + str(sortList))
-    se.writeSortNurses(sortList, config.demoExcelPath)
+    #se.writeSortNurses(sortList, config.demoExcelPath)
