@@ -36,7 +36,7 @@ demoExcelPath = "./data/NurseDemo.xlsx"
 #排班后的数据表文件保存目录
 sortedExcelPath = "./data/NurseSorted.xlsx"
 #设置提示单元格内容
-settingsSheetTipCellText = "请勿删除此行！！！在对应条目下方填写对应的参数，注意参数不要跨年！！！否则数据不正常！！ 年为4位(2019)，月为1到2位(2或10这种)，随机开关只能写(是/否)"
+settingsSheetTipCellText = "请勿删除此行！！！在对应条目下方填写对应的参数，注意参数不要跨年！！！否则数据不正常！！ 年为4位(2019)，月为1到2位(2或10这种)，随机开关只能写（开/关)"
 #设置提示单元格位置
 settingsSheetTipCellAddr = "A1"
 #设置随机单元格位置
